@@ -3,74 +3,43 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mi Portfolio</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      background: #121212;
-      color: #fff;
-      text-align: center;
-    }
-    .container {
-      max-width: 600px;
-      margin: auto;
-      padding: 2rem;
-    }
-    .avatar {
-      width: 120px;
-      height: 120px;
-      border-radius: 50%;
-      margin-bottom: 1rem;
-      border: 3px solid #00b894;
-    }
-    h1 {
-      margin: 0.5rem 0;
-    }
-    p {
-      color: #bbb;
-    }
-    .links {
-      margin-top: 2rem;
-    }
-    .link {
-      display: block;
-      margin: 1rem 0;
-      padding: 1rem;
-      border-radius: 10px;
-      background: #1e1e1e;
-      text-decoration: none;
-      color: #fff;
-      font-size: 1.1rem;
-      transition: background 0.3s;
-    }
-    .link:hover {
-      background: #00b894;
-    }
-    footer {
-      margin-top: 3rem;
-      font-size: 0.8rem;
-      color: #666;
-    }
-  </style>
+  <title>Agustin Chapuis - Links</title>
+  <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-  <div class="container">
-    <img src="avatar.jpg" alt="Foto de perfil" class="avatar">
-    <h1>Tu Nombre</h1>
-    <p>Animador · Diseñador · VFX</p>
+<body class="bg-neutral-900 text-neutral-100 font-sans">
 
-    <div class="links">
-      <a href="cv.pdf" class="link" target="_blank">📄 Descargar CV</a>
-      <a href="https://github.com/usuario" class="link" target="_blank">💻 GitHub</a>
-      <a href="https://www.behance.net/usuario" class="link" target="_blank">🎨 Portfolio</a>
-      <a href="https://vimeo.com/usuario" class="link" target="_blank">🎬 Reel</a>
-      <a href="mailto:tuemail@gmail.com" class="link">✉️ Contacto</a>
-    </div>
+  <!-- Header -->
+  <header class="text-center py-16">
+    <h1 class="text-4xl font-bold tracking-tight">Agustin Chapuis</h1>
+    <p class="text-lg text-neutral-400 mt-2">Editor · CG Artist · VFX</p>
+  </header>
 
-    <footer>
-      © 2025 Tu Nombre
-    </footer>
-  </div>
+  <!-- Links -->
+  <main class="max-w-md mx-auto px-4">
+    <a href="portfolio.html" class="block text-center bg-neutral-800 hover:bg-neutral-700 text-lg font-medium py-4 rounded-xl mb-4 transition">
+      🎬 Portfolio
+    </a>
+    <a href="cv.pdf" class="block text-center bg-neutral-800 hover:bg-neutral-700 text-lg font-medium py-4 rounded-xl mb-4 transition" target="_blank">
+      📄 Descargar CV
+    </a>
+    <a href="https://vimeo.com/tuusuario" class="block text-center bg-neutral-800 hover:bg-neutral-700 text-lg font-medium py-4 rounded-xl mb-4 transition" target="_blank">
+      🎥 Vimeo
+    </a>
+    <a href="https://github.com/tuusuario" class="block text-center bg-neutral-800 hover:bg-neutral-700 text-lg font-medium py-4 rounded-xl mb-4 transition" target="_blank">
+      💻 GitHub
+    </a>
+    <a href="https://behance.net/tuusuario" class="block text-center bg-neutral-800 hover:bg-neutral-700 text-lg font-medium py-4 rounded-xl mb-4 transition" target="_blank">
+      🎨 Behance
+    </a>
+    <a href="mailto:tuemail@gmail.com" class="block text-center bg-neutral-800 hover:bg-neutral-700 text-lg font-medium py-4 rounded-xl mb-4 transition">
+      ✉️ Contacto
+    </a>
+  </main>
+
+  <!-- Footer -->
+  <footer class="text-center py-8 text-sm text-neutral-500">
+    © 2025 Agustin Chapuis
+  </footer>
+
 </body>
 </html>
