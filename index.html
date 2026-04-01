@@ -40,21 +40,40 @@
   </header>
 
   <section id="inicio" class="hero">
-    <svg viewBox="0 0 1200 600" class="hero-svg">
+    
+    <svg viewBox="0 0 1200 600" class="hero-svg hero-svg-desktop">
       <defs>
-        <mask id="text-mask">
+        <mask id="text-mask-desktop">
           <rect width="100%" height="100%" fill="black" />
           <text x="100" y="350" font-size="120" font-family="Bebas Neue, sans-serif" font-style="italic" fill="white" letter-spacing="4" stroke="white" stroke-width="4">Agustin Chapuis</text>
           <text x="100" y="450" font-size="48" font-family="Bebas Neue, sans-serif" font-style="italic" fill="white" letter-spacing="8" stroke="white" stroke-width="2">3D • VFX • Editing</text>
         </mask>
       </defs>
       <rect width="100%" height="100%" fill="white" />
-      <foreignObject width="100%" height="100%" mask="url(#text-mask)">
+      <foreignObject width="100%" height="100%" mask="url(#text-mask-desktop)">
         <video autoplay muted loop playsinline width="100%" height="100%" style="object-fit: cover;">
           <source src="assets/hero.mp4" type="video/mp4">
         </video>
       </foreignObject>
     </svg>
+
+    <svg viewBox="0 0 600 800" class="hero-svg hero-svg-mobile">
+      <defs>
+        <mask id="text-mask-mobile">
+          <rect width="100%" height="100%" fill="black" />
+          <text x="50%" y="380" font-size="110" font-family="Bebas Neue, sans-serif" font-style="italic" fill="white" letter-spacing="2" stroke="white" stroke-width="3" text-anchor="middle">Agustin</text>
+          <text x="50%" y="480" font-size="110" font-family="Bebas Neue, sans-serif" font-style="italic" fill="white" letter-spacing="2" stroke="white" stroke-width="3" text-anchor="middle">Chapuis</text>
+          <text x="50%" y="560" font-size="32" font-family="Bebas Neue, sans-serif" font-style="italic" fill="white" letter-spacing="6" stroke="white" stroke-width="1.5" text-anchor="middle">3D • VFX • Editing</text>
+        </mask>
+      </defs>
+      <rect width="100%" height="100%" fill="white" />
+      <foreignObject width="100%" height="100%" mask="url(#text-mask-mobile)">
+        <video autoplay muted loop playsinline width="100%" height="100%" style="object-fit: cover;">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+      </foreignObject>
+    </svg>
+
   </section>
 
   <div id="hero-spacer"></div>
