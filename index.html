@@ -4,82 +4,240 @@
   <meta charset="UTF-8">
   <title>Agustín Chapuis</title>
 
-  <!-- Tipografías -->
   <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
 
   <style>
-    /* Reset básico */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Inter', sans-serif;
-      background-color: #111;
-      color: white;
-    }
-
-    /* HEADER FIJO */
-    header {
-      position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 70px;
-  background-color: rgba(0, 0, 0, 0.85);
-  display: flex;
-  align-items: center;
-  justify-content: flex-start; /* 👈 esto cambia */
-  padding-left: 40px; /* 👈 margen desde el borde */
-  z-index: 1000;
-  backdrop-filter: blur(8px);
-}
-
-    nav {
-      display: flex;
-      gap: 40px;
-    }
-
-    nav a {
-      text-decoration: none;
-      color: white;
-      font-family: 'Bebas Neue', sans-serif;
-      font-size: 22px;
-      letter-spacing: 1px;
-      transition: opacity 0.3s ease;
-    }
-
-    nav a:hover {
-      opacity: 0.6;
-    }
-
-    /* CONTENIDO DE PRUEBA */
-    .content {
-      margin-top: 100px;
-      padding: 40px;
-      height: 2000px; /* solo para probar scroll */
-    }
+    html { scroll-behavior: smooth; }
   </style>
 </head>
 
 <body>
+  <div id="top"></div>
+
+  <div class="global-video-bg">
+    <video autoplay muted loop playsinline>
+      <source src="assets/hero.mp4" type="video/mp4">
+    </video>
+  </div>
 
   <header>
     <nav>
-      <a href="#">Inicio</a>
-      <a href="#">Portfolio</a>
-      <a href="#">Sobre mí</a>
-      <a href="#">CV</a>
-      <a href="#">Contacto</a>
+      <a href="#top">Inicio</a>
+      <div class="dropdown">
+        <a href="#portfolio">Portfolio</a>
+        <div class="dropdown-menu">
+          <a href="#edicion-montaje">Edición y Montaje</a>
+          <a href="#3d-diseno">3D & Diseño Visual</a>
+          <a href="#vfx-composicion">VFX & Composición</a>
+          <a href="#proyectos-personales">Proyectos personales</a>
+        </div>
+      </div>
+      <a href="#sobre-mi">Sobre mi</a>
+      <a href="#cv">CV</a>
+      <a href="#contacto">Contacto</a>
     </nav>
   </header>
 
-  <div class="content">
-    <h1>Test Scroll</h1>
-    <p>Scrolleá para ver si el menú queda fijo.</p>
+  <section id="inicio" class="hero">
+    <svg viewBox="0 0 1200 600" class="hero-svg">
+      <defs>
+        <mask id="text-mask">
+          <rect width="100%" height="100%" fill="black" />
+          <text x="100" y="350" font-size="120" font-family="Bebas Neue, sans-serif" font-style="italic" fill="white" letter-spacing="4" stroke="white" stroke-width="4">Agustin Chapuis</text>
+          <text x="100" y="450" font-size="48" font-family="Bebas Neue, sans-serif" font-style="italic" fill="white" letter-spacing="8" stroke="white" stroke-width="2">3D • VFX • Editing</text>
+        </mask>
+      </defs>
+      <rect width="100%" height="100%" fill="white" />
+      <foreignObject width="100%" height="100%" mask="url(#text-mask)">
+        <video autoplay muted loop playsinline width="100%" height="100%" style="object-fit: cover;">
+          <source src="assets/hero.mp4" type="video/mp4">
+        </video>
+      </foreignObject>
+    </svg>
+  </section>
+
+  <div id="hero-spacer"></div>
+
+  <section id="edicion-montaje">
+    <h2 class="section-title">Edición y Montaje</h2>
+    <div class="video-grid grid-2x3">
+      <div class="video-slot" data-vimeo="1164350483" data-title="Proyecto 1"></div>
+      <div class="video-slot" data-vimeo="1164351022" data-title="Proyecto 2"></div>
+      <div class="video-slot" data-vimeo="1050074069" data-title="Proyecto 3"></div>
+      <div class="video-slot" data-vimeo="1179319000" data-title="Proyecto 4"></div>
+      <div class="video-slot" data-vimeo="786323194" data-title="Proyecto 5"></div>
+      <div class="video-slot" data-vimeo="786999526" data-title="Proyecto 6"></div>
+    </div>
+  </section>
+
+  <section id="3d-diseno">
+    <h2 class="section-title">3D & Diseño Visual</h2>
+    <div class="video-grid grid-2x2">
+      <div class="video-slot" data-vimeo="1164349748" data-title="Proyecto 1"></div>
+      <div class="video-slot" data-vimeo="1025425889" data-title="Proyecto 2"></div>
+      <div class="video-slot" data-vimeo="851707395" data-title="Proyecto 3"></div>
+      <div class="video-slot" data-vimeo="1051000423" data-title="Proyecto 4"></div>
+    </div>
+  </section>
+
+  <section id="vfx-composicion">
+    <h2 class="section-title">VFX & Composición</h2>
+    <div class="video-grid grid-2x2">
+      <div class="video-slot" data-vimeo="1179320114" data-title="Proyecto 1"></div>
+      <div class="video-slot" data-vimeo="1078053412" data-title="Proyecto 2"></div>
+      <div class="video-slot" data-vimeo="1179321298" data-title="Proyecto 3"></div>
+      <div class="video-slot" data-vimeo="1054596720" data-title="Proyecto 4"></div>
+    </div>
+  </section>
+
+  <section id="proyectos-personales">
+    <h2 class="section-title">Proyectos personales</h2>
+    <div class="video-grid grid-2x1">
+      <div class="video-slot" data-vimeo="1078048925" data-title="Proyecto 1"></div>
+      <div class="video-slot" data-vimeo="1179322778" data-title="Proyecto 2"></div>
+    </div>
+  </section>
+
+  <section id="sobre-mi">
+    <h2 class="section-title">Sobre mi</h2>
+    <div class="sobre-mi-container">
+      <p class="sobre-mi-text">
+        Soy editor y motion grapher con más de siete años de experiencia, combinando creatividad y pragmatismo para entregar proyectos claros y efectivos. Hoy estoy expandiendo mi carrera hacia el 3D y la composición de VFX, buscando desarrollar mi creatividad en proyectos que mezclen técnica, narrativa y estética.
+      </p>
+      <img src="assets/ProfilePic_AgustinChapuis.jpg" alt="Agustin Chapuis" class="sobre-mi-foto">
+    </div>
+  </section>
+
+  <section id="cv">
+    <h2 class="section-title">CV</h2>
+    <div class="cv-container">
+      
+      <div class="cv-content">
+        
+        <div class="cv-category">
+          <h3 class="cv-highlight">Experiencia</h3>
+          
+          <div class="cv-item">
+            <h4 class="cv-role">Tekne – Video Editor & 3D/Motion Graphics <span class="cv-date">| 2023 – Presente</span></h4>
+            <p class="cv-text">
+              Edición de cursos, videos institucionales y TVCs para Amazon, AWS y Fire TV.<br>
+              Creación completa de video 3D de los nuevos lockers Amazon (modelado, shading, iluminación, render, edición, motion graphics y diseño sonoro).<br>
+              Coordinación del equipo del proyecto de cursos de AWS en francés.
+            </p>
+          </div>
+
+          <div class="cv-item">
+            <h4 class="cv-role">Axion Studios – YouTube Editor <span class="cv-date">| 2020 – 2022</span></h4>
+            <p class="cv-text">
+              Edición de videos, animaciones y miniaturas para el canal.<br>
+              Optimización del flujo de trabajo y gestión de contenido digital.
+            </p>
+          </div>
+
+          <div class="cv-item">
+            <h4 class="cv-role">Freelance – Editor & Motion Graphics / 3D & VFX <span class="cv-date">| 2022 – Presente</span></h4>
+            <p class="cv-text">
+              Proyectos variados de video, animación y VFX.<br>
+              Dirección y producción de proyectos personales y colaborativos.
+            </p>
+          </div>
+        </div>
+
+        <div class="cv-category">
+          <h3 class="cv-highlight">Educación</h3>
+          <div class="cv-item">
+            <h4 class="cv-role">Universidad Nacional de San Martín (UNSAM)</h4>
+            <p class="cv-text">Tecnicatura en Animación 3D y VFX – Graduado</p>
+          </div>
+        </div>
+
+        <div class="cv-category">
+          <h3 class="cv-highlight">Software / Skills</h3>
+          <div class="cv-item">
+            <p class="cv-text">Maya | Substance Painter | Unreal Engine | Nuke | Fusion | After Effects | Photoshop | Premiere Pro | DaVinci Resolve</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="cv-buttons">
+        <a href="assets/ChapuisAgustin_VideoEditor_EN.pdf" target="_blank" class="cv-btn">CV<br>Editor</a>
+        <a href="assets/ChapuisAgustin_VFX_EN.pdf" target="_blank" class="cv-btn">CV<br>3D - VFX</a>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contacto">
+    <h2 class="section-title">Contacto</h2>
+    <div class="contacto-container">
+      <p class="contacto-intro"></p>
+      
+      <a href="mailto:chapuis.tin@gmail.com" class="contacto-email">chapuis.tin@gmail.com</a>
+      
+      <div class="contacto-socials">
+        <a href="https://www.artstation.com/tintovision" target="_blank" class="social-btn">ArtStation</a>
+        <a href="https://vimeo.com/user171233287" target="_blank" class="social-btn">Vimeo</a>
+        <a href="https://www.linkedin.com/in/chapuis-tin/" target="_blank" class="social-btn">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="video-modal" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <iframe id="vimeo-player" src="" frameborder="0" allow="autoplay; fullscreen" allowfullscreen></iframe>
+    </div>
   </div>
+
+  <script>
+    const hero = document.getElementById('inicio');
+    const fadeDistance = 150;
+    window.addEventListener('scroll', () => {
+      const scroll = window.scrollY;
+      let opacity = 1 - scroll / fadeDistance;
+      if(opacity < 0) opacity = 0;
+      hero.style.opacity = opacity;
+    });
+
+    const slots = document.querySelectorAll('.video-slot');
+    slots.forEach((slot, index) => {
+      const thumbNum = (index + 1).toString().padStart(2, '0');
+      const thumbUrl = `assets/thumb_${thumbNum}.png`;
+      slot.style.backgroundImage = `url(${thumbUrl})`;
+      const vimeoId = slot.dataset.vimeo;
+
+      fetch(`https://vimeo.com/api/oembed.json?url=https://vimeo.com/${vimeoId}`)
+        .then(res => res.json())
+        .then(data => {
+          const title = data.title || slot.dataset.title || 'Video';
+          slot.innerHTML = `<div class="overlay"><span>${title}</span></div>`;
+        })
+        .catch(() => {
+          const fallbackTitle = slot.dataset.title || `Proyecto ${index + 1}`;
+          slot.innerHTML = `<div class="overlay"><span>${fallbackTitle}</span></div>`;
+        });
+
+      slot.addEventListener('click', () => {
+        const iframe = document.getElementById('vimeo-player');
+        iframe.src = `https://player.vimeo.com/video/${vimeoId}?autoplay=1`;
+        document.getElementById('video-modal').style.display = 'flex';
+      });
+    });
+
+    const modal = document.getElementById('video-modal');
+    document.querySelector('.modal-close').addEventListener('click', () => {
+      modal.style.display = 'none';
+      document.getElementById('vimeo-player').src = '';
+    });
+    modal.addEventListener('click', e => {
+      if(e.target === modal){
+        modal.style.display = 'none';
+        document.getElementById('vimeo-player').src = '';
+      }
+    });
+  </script>
 
 </body>
 </html>
