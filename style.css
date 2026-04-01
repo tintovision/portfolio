@@ -2,26 +2,26 @@
    VARIABLES DE CONTROL (AQUÍ MODIFICAS TAMAÑOS Y POSICIONES FÁCILMENTE)
 ========================================================================= */
 :root {
-  /* --- CONTROLES: FONDO DE VIDEO GLOBAL (NUEVO) --- */
-  --global-bg-video-opacity: 0.1; /* 10% de opacidad, muy suave sobre el fondo negro */
-  --global-bg-video-blur: 5px;   /* Suavizado opcional para la textura (0px para nítido) */
+  /* --- CONTROLES: FONDO DE VIDEO GLOBAL --- */
+  --global-bg-video-opacity: 0.1; 
+  --global-bg-video-blur: 5px;   
 
   /* --- CONTROLES: TÍTULOS DE SECCIÓN --- */
-  --section-title-x: 200px;      /* Mover títulos de sección (Edición, CV, etc) a los costados */
-  --section-title-y: 0px;        /* Mover títulos de sección arriba/abajo */
+  --section-title-x: 200px;      
+  --section-title-y: 0px;        
 
   /* --- CONTROLES: SOBRE MI --- */
-  --sobremi-font-size: 2rem;   /* Tamaño del texto */
-  --sobremi-text-align: right;   /* Posición del texto (left, center, right) */
-  --sobremi-text-x: 350px;         /* Mover el texto a los costados */
-  --sobremi-text-y: 0px;         /* Mover el texto arriba/abajo */
+  --sobremi-font-size: 2rem;   
+  --sobremi-text-align: right;   
+  --sobremi-text-x: 350px;         
+  --sobremi-text-y: 0px;         
   
-  --sobremi-img-size: 400px;     /* Tamaño de la foto de perfil */
-  --sobremi-img-x: -400px;          /* Mover foto a los costados */
-  --sobremi-img-y: 0px;          /* Mover foto arriba/abajo */
+  --sobremi-img-size: 400px;     
+  --sobremi-img-x: -400px;          
+  --sobremi-img-y: 0px;          
 
   /* --- CONTROLES: SECCIÓN CV --- */
-  --cv-block-x: 300px;           /* Todo el bloque de texto del CV */
+  --cv-block-x: 300px;           
   --cv-block-y: 0px;
 
   /* Títulos principales (Experiencia, Educación, Skills) */
@@ -30,31 +30,30 @@
   --cv-highlight-style: normal;  
   --cv-highlight-x: 100px;
   --cv-highlight-y: 0px;
-  --cv-divider-color: rgba(255, 255, 255, 0.2); /* Color de la línea que los separa */
+  --cv-divider-color: rgba(255, 255, 255, 0.2); 
 
   /* Puestos y Textos descriptivos */
-  --cv-role-size: 1.2rem;        /* Tamaño del nombre del puesto */
-  --cv-text-size: 1rem;          /* Tamaño de la descripción de tareas */
-  --cv-text-x: 0px;              /* Mover textos y puestos a los costados */
-  --cv-text-y: 0px;              /* Mover textos y puestos arriba/abajo */
+  --cv-role-size: 1.2rem;        
+  --cv-text-size: 1rem;          
+  --cv-text-x: 0px;              
+  --cv-text-y: 0px;              
 
   /* Botones del CV */
-  --cv-btn-font-size: 1rem;      /* Tamaño de la fuente de los botones del CV */
+  --cv-btn-font-size: 1rem;      
   --cv-btn-size: 120px;          
   --cv-btn-gap: 100px;            
   --cv-btn-x: -500px;               
   --cv-btn-y: 200px;             
   
   /* --- CONTROLES: SECCIÓN CONTACTO --- */
-  --contacto-email-size: 3rem;   /* Tamaño de la fuente del mail */
-  --contacto-email-x: 520px;       /* Mover mail a los costados */
-  --contacto-email-y: 0px;       /* Mover mail arriba/abajo */
+  --contacto-email-size: 3rem;   
+  --contacto-email-x: 520px;       
+  --contacto-email-y: 0px;       
   
-  --contacto-btn-size: 2rem;   /* Tamaño de la fuente de los botones sociales */
-  --contacto-btn-x: 520px;         /* Mover botones a los costados */
-  --contacto-btn-y: 0px;         /* Mover botones arriba/abajo */
+  --contacto-btn-size: 2rem;   
+  --contacto-btn-x: 520px;         
+  --contacto-btn-y: 0px;         
 }
-
 
 /* Reset */
 * { margin:0; padding:0; box-sizing:border-box; }
@@ -67,9 +66,9 @@ body { font-family: 'Inter', sans-serif; background:#111; color:white; overflow-
   left: 0;
   width: 100%;
   height: 100vh;
-  z-index: -1; /* Detrás de absolutamente todo */
+  z-index: -1; 
   overflow: hidden;
-  background: #111; /* Asegura que la base sea negra */
+  background: #111; 
 }
 
 .global-video-bg video {
@@ -82,7 +81,6 @@ body { font-family: 'Inter', sans-serif; background:#111; color:white; overflow-
   left: 50%;
   transform: translate(-50%, -50%);
   object-fit: cover;
-  /* Usando las nuevas variables: */
   opacity: var(--global-bg-video-opacity);
   filter: blur(var(--global-bg-video-blur));
 }
@@ -101,7 +99,6 @@ nav { display: flex; gap: 15px; }
 nav a { text-decoration:none; color:white; font-family:'Bebas Neue', sans-serif; font-size:22px; letter-spacing:1px; transition:0.3s; }
 nav a:hover { opacity:0.6; }
 
-/* Reglas del Header para computadoras/tablets grandes */
 @media (min-width: 900px) {
   header {
     justify-content: flex-start;
@@ -129,16 +126,19 @@ nav a:hover { opacity:0.6; }
 .hero-svg { width:100%; height:100%; display:block; }
 #hero-spacer { height:100vh; }
 
-/* SECCIONES (Modificado para transparencia) */
+/* MANEJO DE SVG DESKTOP/MOBILE */
+.hero-svg-desktop { display: block; }
+.hero-svg-mobile { display: none; }
+
+/* SECCIONES */
 section { 
   padding:40px; 
   min-height:100vh; 
-  /* background:#222; -- ELIMINADO PARA REVELAR EL VIDEO DE FONDO */
-  background: transparent; /* Revela el video que está detrás en el body */
+  background: transparent; 
   color:white; 
   scroll-margin-top:90px; 
   position: relative;
-  z-index: 20; /* Asegura que el contenido esté sobre el video global (-1) */
+  z-index: 20; 
 }
 .section-title { 
   font-family:'Bebas Neue', sans-serif; 
@@ -254,12 +254,6 @@ section {
 }
 .cv-btn:hover { transform: scale(1.05); cursor: pointer; }
 
-@media (max-width: 900px) {
-  .cv-container { flex-direction: column; align-items: flex-start; }
-  .cv-buttons { flex-direction: row; margin-top: 20px; }
-  .cv-btn { width: 100px; height: 100px; }
-}
-
 /* SECCION CONTACTO */
 .contacto-container {
   display: flex;
@@ -276,14 +270,14 @@ section {
 
 .contacto-email {
   font-family: 'Bebas Neue', sans-serif;
-  font-size: var(--contacto-email-size); /* Variable añadida */
+  font-size: var(--contacto-email-size); 
   color: white;
   text-decoration: none;
   letter-spacing: 2px;
   transition: opacity 0.3s ease;
   word-break: break-all;
   display: inline-block;
-  transform: translate(var(--contacto-email-x), var(--contacto-email-y)); /* Variable añadida */
+  transform: translate(var(--contacto-email-x), var(--contacto-email-y)); 
 }
 
 .contacto-email:hover {
@@ -295,14 +289,14 @@ section {
   gap: 15px;
   flex-wrap: wrap;
   margin-top: 20px;
-  transform: translate(var(--contacto-btn-x), var(--contacto-btn-y)); /* Variable añadida */
+  transform: translate(var(--contacto-btn-x), var(--contacto-btn-y)); 
 }
 
 .social-btn {
   background: white;
   color: black;
   font-family: 'Bebas Neue', sans-serif;
-  font-size: var(--contacto-btn-size); /* Variable añadida */
+  font-size: var(--contacto-btn-size); 
   padding: 12px 30px;
   border-radius: 8px; 
   text-decoration: none;
@@ -323,3 +317,72 @@ section {
 .modal-content { position:relative; width:90%; max-width:900px; height:60%; }
 .modal iframe { width:100%; height:100%; }
 .modal-close { position:absolute; top:10px; right:15px; font-size:2rem; color:white; cursor:pointer; }
+
+
+/* =========================================================================
+   📱 AJUSTES MÓVILES (ESTO ASEGURA QUE SE VEA BIEN EN CELULARES Y NO TOCA LA PC)
+========================================================================= */
+@media (max-width: 900px) {
+  
+  /* 1. Muestra el inicio vertical y oculta el apaisado */
+  .hero-svg-desktop { display: none; }
+  .hero-svg-mobile { display: block; }
+
+  /* 2. Reseteamos las posiciones extremas y ajustamos tamaños de fuente para que encajen */
+  :root {
+    --section-title-x: 0px;
+    
+    --sobremi-font-size: 1.2rem;
+    --sobremi-text-align: center;
+    --sobremi-text-x: 0px;
+    --sobremi-img-size: 250px;
+    --sobremi-img-x: 0px;
+    
+    --cv-block-x: 0px;
+    --cv-highlight-size: 1.8rem;
+    --cv-highlight-x: 0px;
+    --cv-role-size: 1.2rem;
+    --cv-text-x: 0px;
+    
+    --cv-btn-x: 0px;
+    --cv-btn-y: 0px;
+    --cv-btn-gap: 20px;
+    
+    --contacto-email-x: 0px;
+    --contacto-email-size: clamp(1.5rem, 6vw, 2.5rem); /* Se achica solo si la pantalla es muy fina */
+    --contacto-btn-x: 0px;
+    --contacto-btn-size: 1rem;
+  }
+
+  /* 3. Grilla de videos a 1 sola columna en móviles */
+  .grid-2x3, .grid-2x2, .grid-2x1 {
+    grid-template-columns: 1fr;
+  }
+
+  /* 4. Centramos el contenido que antes estaba a los costados */
+  .section-title { 
+    text-align: center; 
+  }
+  
+  .cv-container { 
+    flex-direction: column; 
+    align-items: center; 
+    text-align: center;
+  }
+  
+  .cv-buttons { 
+    flex-direction: row; 
+    justify-content: center; 
+    margin-top: 30px; 
+  }
+  
+  .contacto-container { 
+    align-items: center; 
+    text-align: center; 
+    margin: 0 auto;
+  }
+  
+  .contacto-socials { 
+    justify-content: center; 
+  }
+}
