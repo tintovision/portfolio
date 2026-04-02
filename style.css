@@ -39,7 +39,7 @@
   --cv-text-y: 0px;              
 
   /* Botones del CV */
-  --cv-btn-font-size: 1rem;      
+  --cv-btn-font-size: 2rem;      
   --cv-btn-size: 120px;          
   --cv-btn-gap: 100px;            
   --cv-btn-x: -500px;               
@@ -50,6 +50,7 @@
   --contacto-email-x: 520px;       
   --contacto-email-y: 0px;       
   
+  --contacto-btn-size: 2rem;   
   --contacto-btn-size: 2rem;   
   --contacto-btn-x: 520px;         
   --contacto-btn-y: 0px;         
@@ -126,7 +127,6 @@ nav a:hover { opacity:0.6; }
 .hero-svg { width:100%; height:100%; display:block; }
 #hero-spacer { height:100vh; }
 
-/* MANEJO DE SVG DESKTOP/MOBILE */
 .hero-svg-desktop { display: block; }
 .hero-svg-mobile { display: none; }
 
@@ -157,7 +157,17 @@ section {
 .grid-2x2 { grid-template-columns: repeat(2, 1fr); grid-template-rows: repeat(2, 1fr); }
 .grid-2x1 { grid-template-columns: repeat(2, 1fr); grid-template-rows: 1fr; }
 .video-slot { position: relative; width: 100%; padding-top:100%; background-size: cover; background-position: center; cursor: pointer; overflow:hidden; border-radius:8px; }
-.video-slot .overlay { position:absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.3); display:flex; align-items:center; justify-content:center; color:white; font-family:'Bebas Neue', sans-serif; font-size:3rem; line-height:1.1; text-align:center; opacity:0; transition:0.3s; pointer-events: none; }
+
+/* OVERLAY GLOBAL (DESKTOP HOVER) */
+.video-slot .overlay { 
+  position:absolute; top:0; left:0; width:100%; height:100%; 
+  background: rgba(0,0,0,0.3); 
+  display:flex; align-items:center; justify-content:center; 
+  color:white; font-family:'Bebas Neue', sans-serif; 
+  font-size:3rem; line-height:1.1; text-align:center; 
+  opacity:0; transition:0.3s; 
+  pointer-events: none; 
+}
 .video-slot:hover .overlay { opacity:1; background: rgba(0,0,0,0.6); }
 
 /* SOBRE MI */
@@ -320,15 +330,13 @@ section {
 
 
 /* =========================================================================
-   📱 AJUSTES MÓVILES (ESTO ASEGURA QUE SE VEA BIEN EN CELULARES Y NO TOCA LA PC)
+   📱 AJUSTES MÓVILES (CON TÍTULOS DE TRABAJOS FIJOS)
 ========================================================================= */
 @media (max-width: 900px) {
   
-  /* 1. Muestra el inicio vertical y oculta el apaisado */
   .hero-svg-desktop { display: none; }
   .hero-svg-mobile { display: block; }
 
-  /* 2. Reseteamos las posiciones extremas y ajustamos tamaños de fuente para que encajen */
   :root {
     --section-title-x: 0px;
     
@@ -349,17 +357,40 @@ section {
     --cv-btn-gap: 20px;
     
     --contacto-email-x: 0px;
-    --contacto-email-size: clamp(1.5rem, 6vw, 2.5rem); /* Se achica solo si la pantalla es muy fina */
+    --contacto-email-size: clamp(1.5rem, 6vw, 2.5rem); 
     --contacto-btn-x: 0px;
     --contacto-btn-size: 1rem;
   }
 
-  /* 3. Grilla de videos a 1 sola columna en móviles */
   .grid-2x3, .grid-2x2, .grid-2x1 {
     grid-template-columns: 1fr;
   }
 
-  /* 4. Centramos el contenido que antes estaba a los costados */
+  /* MODIFICACIÓN MOBILE PORTFOLIO: Títulos fijos abajo */
+  .video-slot .overlay {
+    opacity: 1; /* Siempre visible */
+    top: auto; /* Quitamos alineación superior */
+    bottom: 0; /* Alineamos abajo */
+    height: auto; /* Altura automática según el texto */
+    background: rgba(0, 0, 0, 0.7); /* Rectángulo negro semi-transparente */
+    padding: 10px; /* Espaciado interno */
+    font-size: 1.1rem; /* Tamaño de fuente mucho más pequeño para la barra */
+    border-bottom-left-radius: inherit; /* Mantenemos bordes redondeados del padre */
+    border-bottom-right-radius: inherit;
+    transition: none; /* Quitamos transiciones */
+  }
+
+  /* Aseguramos que el span ocupe el ancho para centrar */
+  .video-slot .overlay span {
+    width: 100%;
+    display: block;
+  }
+
+  /* Evitamos cambios de fondo al tocar el slot en mobile */
+  .video-slot:hover .overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
   .section-title { 
     text-align: center; 
   }
